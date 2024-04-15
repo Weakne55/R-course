@@ -5,7 +5,7 @@ nrow(USArrests)
 #2
 head(USArrests)
 tail(USArrests)
-USArrests[, 10]
+USArrests[2:3, "Rape"]
 #3
 USArrests[16:20,3]
 #4
@@ -30,22 +30,18 @@ for (k in dimnames(USArrests)){
 #6
 sum(USArrests)
 mean(USArrests)
-sd(USArrests)
-var(USArrests)
+sd(as.matrix(USArrests))
+var(as.matrix(USArrests))
 #7 
-for (i in colnames(USArrests)){
-  print(mean(USArrests[,i]))
-  print(sum(USArrests[,i]))
-  print(sd(USArrests[,i]))
-  print(var(USArrests[,i]))
-}
+colSums(USArrests)
+colMeans(USArrests)
+apply(USArrests, MARGIN = 2, sd)
+apply(USArrests, MARGIN = 2, var)
 #8
-for (i in colnames(USArrests)){
-  print(mean(USArrests[i,]))
-  print(sum(USArrests[i],))
-  print(sd(USArrests[i,]))
-  print(var(USArrests[i,]))
-}
+rowSums(USArrests)
+rowMeans(USArrests)
+apply(USArrests, MARGIN = 1, sd)
+apply(USArrests, MARGIN = 1, var)
 #9
 for (i in colnames(USArrests)){
   print(USArrests[10:14,i])
